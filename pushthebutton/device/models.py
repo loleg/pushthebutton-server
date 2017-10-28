@@ -11,11 +11,12 @@ class Device(SurrogatePK, Model):
 
     __tablename__ = 'devices'
     short_name = Column(db.String(30), unique=True, nullable=False)
-    information = Column(db.UnicodeText(), nullable=False, default=u"")
+    information = Column(db.UnicodeText(), nullable=True, default=u"")
 
     current_lat = Column(db.Float(), nullable=True)
     current_lon = Column(db.Float(), nullable=True)
-    current_data = Column(db.UnicodeText(), nullable=False, default=u"")
+    current_data = Column(db.UnicodeText(), nullable=True, default=u"")
+    current_status = Column(db.Integer(), nullable=True, default=0)
 
     device_api = Column(db.String(100), nullable=True)
     device_key = Column(db.String(80), nullable=True)

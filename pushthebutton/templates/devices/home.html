@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<ul class="device-list">
+  {% for d in devices %}
+  <li>
+    <span>{{ d.short_name }}</span>
+    <a href="{{ url_for('device.device_edit', device_id=d.id) }}">
+      <i class="fa fa-gear"></i>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{{ url_for('device.device_new') }}" class="btn btn-success">Add device</a>
+
+
+
+<div id='map'></div>
+
+<script>
+	var map = L.map('map').setView([51.5, -0.09], 13);
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	var LeafIcon = L.Icon.extend({
+		options: {
+			shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+			iconSize:     [38, 95],
+			shadowSize:   [50, 64],
+			iconAnchor:   [22, 94],
+			shadowAnchor: [4, 62],
+			popupAnchor:  [-3, -76]
+		}
+	});
+
+	var icons = {
+		0: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'}),
+		1: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'}),
+		2: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'});
+	};
+
+	{% for d in devices %}
+		L.marker([{{ d.current_lat }}, {{ d.current_lon }}],
+			{icon: icons[{{ d.current_status }}]}).bindPopup("{{ d.information }}").addTo(map);
+	{% endfor %}
+
+</script>
+
+
+{% endblock %}

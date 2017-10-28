@@ -1,3 +1,6 @@
+dev.db
+*.lock
+
 *.py[cod]
 
 # C extensions
