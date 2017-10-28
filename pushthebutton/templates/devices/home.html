@@ -31,7 +31,7 @@
 <div id='map'></div>
 
 <script>
-	var map = L.map('map').setView([46.78305365, 9.68360182], 15);
+	var map = L.map('map').setView([46.78305365, 9.68360182], 16);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -50,8 +50,8 @@
 
 	var icons = {
 		0: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'}),
-		1: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'}),
-		2: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'})
+		1: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'}),
+		2: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'})
 	};
 
 	{% for d in devices %}

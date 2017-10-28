@@ -35,7 +35,15 @@ def RefreshAll():
             continue
         curdata = jsondata[0]
         dev.current_data = str(curdata)
-        dev.current_status = 'digital_in_3' in curdata and curdata['digital_in_3']
+        dev.current_status = 0
+        if 'digital_in_3' in curdata:
+            if curdata['digital_in_3']:
+                dev.current_status = 2
+        if 'level' in curdata:
+            if curdata['level'] > 510:
+                dev.current_status = 1
+            if curdata['level'] > 530:
+                dev.current_status = 2
         dev.device_id = curdata['device_id']
         dev.update()
         db.session.add(dev)
