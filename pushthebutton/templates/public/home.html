@@ -1,18 +1,23 @@
 
 {% extends "layout.html" %}
+
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-
-  <h1>Push The Button</h1>
-
+<div class="jumbotron slick-container">
+  <div><img src="{{ asset_url_for('img/home_splash_0.jpg') }}"></div>
+  <div><img src="{{ asset_url_for('img/home_splash_1.jpg') }}"></div>
+  <div><img src="{{ asset_url_for('img/home_splash_2.jpg') }}"></div>
 </div><!-- /.jumbotron -->
+
+
 
 <div class="body-content">
   <div class="row">
     <div class="col-lg-4">
       <h2><i class="fa fa-info"></i> About</h2>
-      <p>Find out more about this project and the team behind it.</p>
+      <p>Find out more about this project started at
+        <a href="http://tourism.opendata.ch">Open Tourism Hackdays</a>
+        2017 in Arosa, and the team behind it.</p>
       <p><a class="btn btn-default" href="https://hack.opendata.ch/project/130">Project website &raquo;</a></p>
     </div>
     <div class="col-lg-4">
@@ -27,4 +32,29 @@
     </div>
   </div><!-- /.row -->
 </div>
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset_url_for('lib/slick/slick.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('lib/slick/slick-theme.css') }}"/> -->
+{% endblock %}
+
+{% block js %}
+<!-- <script type="text/javascript" src="{{ asset_url_for('lib/slick/slick.min.js') }}"></script> -->
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery('.slick-container').slick({
+    speed: 300,
+    autoplay: true,
+    slidesToShow: 1
+  });
+});
+</script>
 {% endblock %}

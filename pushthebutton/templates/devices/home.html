@@ -17,6 +17,16 @@
 
 
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+
+
+	<style>
+		#map {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
 <div id='map'></div>
 
 <script>
@@ -40,7 +50,7 @@
 	var icons = {
 		0: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'}),
 		1: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'}),
-		2: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'});
+		2: new LeafIcon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'})
 	};
 
 	{% for d in devices %}

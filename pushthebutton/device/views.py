@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """User views."""
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 from flask_login import login_required
 
 from .models import Device
@@ -27,7 +27,6 @@ def device_new():
         device.update()
         db.session.add(device)
         db.session.commit()
-        cache.clear()
         flash('Device added.', 'success')
         return home()
     return render_template('devices/edit.html', form=form)
@@ -42,7 +41,6 @@ def device_edit(device_id):
         device.update()
         db.session.add(device)
         db.session.commit()
-        cache.clear()
         flash('Device updated.', 'success')
         return home()
     return render_template('devices/edit.html', form=form)
