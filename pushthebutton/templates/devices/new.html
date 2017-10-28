@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container">
-    <h2>Device details</h2>
-    {{ render_form(url_for('device.device_edit', device_id=device.id), form) }}
+    <h2>New device</h2>
+    {{ render_form(url_for('device.device_new'), form) }}
 </div>
 {% endblock %}
