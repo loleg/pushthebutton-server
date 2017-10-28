@@ -1,5 +1,6 @@
 dev.db
 *.lock
+migrations/
 
 *.py[cod]
 
