@@ -10,8 +10,8 @@ This document describes the overall vision and implementation of our project for
 - [Web application](#webapp)
 - [Inspirationsquellen](#thanks)
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/assets/img/home_splash_2.jpg)
-![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/dashboard.jpg)
+![](assets/img/home_splash_2.jpg)
+![](_preso/dashboard.jpg)
 
 <a name="summary"></a>
 # Zusammenfassung
@@ -32,7 +32,7 @@ Die Anforderungen an die Tourismusdestinationen sind gestiegen. Grossen Wert leg
 <a name="field"></a>
 # Feldtest
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/assets/img/home_splash_1.jpg)
+![](assets/img/home_splash_1.jpg)
 
 Das Ziel ist, am Ende des Hackatlons einen Gerät mitzunehmen und an diversen Orten den Knopf zu drücken. Mittels GPS Daten von einem Smartphone und dem Zeitpunkt sowie einer Numerierung kann danach eruiert werden, ob das Signal angekommen ist.
 Nach Möglichkeit werden Passanten nach ihrer Meinung über die Grundidee befragt.
@@ -62,13 +62,13 @@ Die Gemeinde installiert einen Gateway für ["The Things Network"](http://thethi
 
 Wo die Gateways installiert werden können, müsste im Detail abgeklärt werden. Ideal sind Standorte, zu denen von möglichst vielen Punkten eine Sichtverbindung besteht. Diskutiert werden könnte etwa über die auf [dieser Karte markierten Standorte](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638).
 
-[![](https://github.com/loleg/pushthebutton-server/raw/master/http://wortaholic.ch/div/hackarosa/lorawanstandorte.png "Bitte klicken für interaktive Karte")](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638)
+[![](http://wortaholic.ch/div/hackarosa/lorawanstandorte.png "Bitte klicken für interaktive Karte")](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638)
 
 <small>([Vergrössern](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638))</small>
 
 ### Nodes
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/node1.jpg)
+![](_preso/node1.jpg)
 
 Die Sendegeräte bestehen aus einer Mikro-Platine sowie einem Sendemodul und einer Antenne. Gespiesen werden die Geräte durch einen kleinen Akku. An diese können je nach Bedarf Sensoren angeschlossen werden. Je nach Konfiguration und angeschlossenen Sensoren können die Geräte mehrere Monate bis zu wenigen Jahren mit einer Akkuladung betrieben werden. Wobei auch eine verkürzte Akkuladung kein Problem darstellt, da die Standorte der Sensoren ohnehin regelmässig von Mitarbeiter der Destination kontrolliert wird.
 
@@ -87,7 +87,7 @@ Je nach Einsatzsznario kommen unterschiedliche Sensoren zum Einsatz.
 
 This project contains a basic, but fully functional Web dashboard for managing and monitoring nodes connected through The Things Network API. It was developed in [Python](http://python.org) using the [Flask](http://flask.pocoo.org/) microframework and various modules, [Bootstrap](https://getbootstrap.com/) frontend, and [cookiecutter](https://github.com/sloria/cookiecutter-flask/) by sloria.
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/dashboard.jpg)
+![](_preso/dashboard.jpg)
 
 After registering and logging in, you can add devices using a simple form. They will appear on a map as pins with a status color that changes (green-yellow-red) based on the alert. The Refresh button obtains the latest status from each node in sequence.
 
@@ -95,13 +95,13 @@ See [DEPLOY.rst](DEPLOY.rst) for more technical details and deployment instructi
 
 You can find the corresponding code for the Micropython node at [morgulbrut/opendata_lora_circuitpython](https://github.com/morgulbrut/opendata_lora_circuitpython).
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/slackbot.png)
+![](_preso/slackbot.png)
 
 A chatbot script we quickly wrote in [Coffeescript](http://coffeescript.org/) to test notifications through Slack is at [loleg/sodabot](https://github.com/loleg/sodabot/blob/opentourism/scripts/onia.coffee).
 
 Here is our sketch for the dashboard, showing additional features (time series display, navigation, etc.) that we envision:
 
-![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/sketch.jpg)
+![](_preso/sketch.jpg)
 
 <a name="thanks"></a>
 # Inspirationsquellen
