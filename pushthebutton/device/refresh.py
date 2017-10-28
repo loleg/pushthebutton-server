@@ -18,7 +18,7 @@ def RefreshAll():
 
         url = TTN_URL % dev.device_api
         data = {
-            'last': '30m'
+            'last': '10m'
         }
         headers = {
             'Accept': 'application/json',
@@ -33,7 +33,7 @@ def RefreshAll():
         if not len(jsondata)>0:
             current_app.logger.error(jsondata)
             continue
-        curdata = jsondata[0]
+        curdata = jsondata[-1]
         dev.current_data = str(curdata)
         dev.current_status = 0
         if 'digital_in_3' in curdata:
