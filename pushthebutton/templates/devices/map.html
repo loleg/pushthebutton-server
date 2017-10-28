@@ -1,0 +1,11 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+{% for d in devices %}
+{{ d.name }}
+{% endfor %}
+
+<a href="{{ url_for('device.device_new') }}" class="btn btn-success">Add device</a>
+
+{% endblock %}

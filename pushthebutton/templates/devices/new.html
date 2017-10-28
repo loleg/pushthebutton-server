@@ -1,0 +1,10 @@
+{% from "macros/_form.html" import render_form %}
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>New Device</h2>
+    {{ render_form(url_for('device.device_new'), form) }}
+</div>
+{% endblock %}
