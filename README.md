@@ -2,13 +2,19 @@
 
 **Der einfachste Zufriedenheitstracker für Tourismusregionen**
 
-![](assets/img/home_splash_2.jpg)
+This document describes the overall vision and implementation of our project for the [Open Tourism Data](http://tourism.opendata.ch) Hackdays 2017 in Arosa. The code is in two parts: the client [Node hardware and software](https://github.com/morgulbrut/opendata_lora_circuitpython) in one, and a [server repository](https://github.com/loleg/pushthebutton-server) which holds the Web application and monitoring components as detailed below.
 
-This document describes the overall vision and implementation of our project for the [Open Tourism Data](http://tourism.opendata.ch) Hackdays 2017 in Arosa. This repository holds the Web server application and monitoring components, [detailed below](#webapp). Please see also technical details of the client [Node hardware and software](https://github.com/morgulbrut/opendata_lora_circuitpython).
+- [Zusammenfassung](#summary)
+- [Feldtest](#field)
+- [Technische Umsetzung](#tech)
+- [Web application](#webapp)
+- [Inspirationsquellen](#thanks)
 
-![](_preso/dashboard.jpg)
+![](https://github.com/loleg/pushthebutton-server/raw/master/assets/img/home_splash_2.jpg)
+![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/dashboard.jpg)
 
-## Zusammenfassung
+<a name="summary"></a>
+# Zusammenfassung
 
 Der Mülleimer quillt über? Bei der Feuerstelle fehlt das Holz? Bislang machten viele Gäste die Faust im Sack. Neu hauen sie höchstens mit der Faust auf den Knopf. Schon ist die Gemeinde über den Missstand informiert und kann ihn beheben. Die unmittelbare Kundenbefragung ist aber nur ein Vorteil, den das Internet der Dinge einer Tourismusregion bietet. Dank eines flächendeckenden und energiesparenden Netzwerkes lassen sich mit bescheidenen finanziellen Mitteln auch neuartige Dienstleistungen realisieren.
 
@@ -23,9 +29,10 @@ Die Anforderungen an die Tourismusdestinationen sind gestiegen. Grossen Wert leg
 - **Book it to my Room.** Die Gäste können an beliebigen Orten Dienstleistungen in Anspruch nehmen oder Produkte kaufen -- und die Kosten direkt auf die Hotelrechnung buchen lassen. Dazu halten sie lediglich ihre RFID-Karte aufs entsprechende Bezahlterminal.
 - **Surprise, Surprise!** Sie möchten die Liebste ganz besonders verwöhnen? Dann bestellen Sie eine Flasche Sekt auf den Berggipfel. Nichts ist einfacher als das: Der Batch wird an die Bestellsäule gehalten -- wenig später bringt eine Drohne die Überraschung.
 
-## Feldtest
+<a name="field"></a>
+# Feldtest
 
-![](assets/img/home_splash_1.jpg)
+![](https://github.com/loleg/pushthebutton-server/raw/master/assets/img/home_splash_1.jpg)
 
 Das Ziel ist, am Ende des Hackatlons einen Gerät mitzunehmen und an diversen Orten den Knopf zu drücken. Mittels GPS Daten von einem Smartphone und dem Zeitpunkt sowie einer Numerierung kann danach eruiert werden, ob das Signal angekommen ist.
 Nach Möglichkeit werden Passanten nach ihrer Meinung über die Grundidee befragt.
@@ -38,13 +45,16 @@ Angebote wie diese bieten diverse Vorteile:
 - Der Aufbau einer solchen Infrastruktur dürfte auf grosses Medieninteresse sowie vielen Posts auf den sozialen Netzwerken führen. Der dadurch erzielte Werbeeffekt dürfte die Investitionen bei Weitem wett machen. Angebote wie "Surprise, Surprise!" eignen sich zudem vortrefflich für Werbekampagnen.
 -  Der positive Effekt auf die Medien als "First Mover" als eine vernetzte Destination wird auch andere Ferienregionen zum nachahmen bewegen.
 
-## Technische Umsetzung
+<a name="tech"></a>
+# Technische Umsetzung
 
-Die Datenübertragung erfolgt über die Funktechnik [LoRaWAN](https://de.wikipedia.org/wiki/Long_Range_Wide_Area_Network). Damit können Daten bei sehr geringem Energieverbrauch über grosse Distanzen übermittelt werden. Damit können Zufriedensheitstracker an beliebigen Stellen platziert werden -- unabhängig von Infrasturktur wie konventioneller Mobilnetzabdeckung und Stomverfügbarkeit. Der Empfang und die Verarbeitung der Daten erfolgt durch das nicht kommerzielle [The Things Network](https://www.thethingsnetwork.org). Damit fallen für die unmittelbare Übertragung keine Extrakosten an. Bei technischen Problemen kann in der "The Things Network"-Gemeinschaft nachgefragt oder bei der [Open Network Infrastructure Association](https://opennetworkinfrastructure.org/) nachgefragt werden. Ist kommerzieller Support nötig oder soll der Gateway nicht selber betrieben werden, können die Übertragungsleistungen bei der [Swisscom](http://lpn.swisscom.ch/d/) eingekauft werden. Nachfolgend wird eine Installation mit dem "The Things Network" beschrieben.
+Die Datenübertragung erfolgt über die Funktechnik [LoRaWAN](https://de.wikipedia.org/wiki/Long_Range_Wide_Area_Network). Damit können Daten bei sehr geringem Energieverbrauch über grosse Distanzen übermittelt werden. Damit können Zufriedensheitstracker an beliebigen Stellen platziert werden -- unabhängig von Infrasturktur wie konventioneller Mobilnetzabdeckung und Stomverfügbarkeit. Der Empfang und die Verarbeitung der Daten erfolgt durch das nicht kommerzielle [The Things Network](https://www.thethingsnetwork.org). Damit fallen für die unmittelbare Übertragung keine Extrakosten an.
+
+Bei technischen Fragen kann in der "The Things Network"-Gemeinschaft nachgefragt oder bei der [Open Network Infrastructure Association](https://opennetworkinfrastructure.org/) nachgefragt werden. Ist kommerzieller Support nötig oder soll der Gateway nicht selber betrieben werden, können die Übertragungsleistungen bei der [Swisscom](http://lpn.swisscom.ch/d/) eingekauft werden. Nachfolgend wird eine Installation mit dem "The Things Network" beschrieben.
 
 ### Gateway
 
-![Photo](_preso/2017-10-27 15.25.49_preview.jpeg "Installation des erstes IoT Gateway in Arosa")
+![Photo](_preso/gateway.jpg)
 
 Die Gemeinde installiert einen Gateway für ["The Things Network"](http://thethingsnetwork.com). Dieser empfängt die Daten, die von den einzelnen Nodes gesendet werden, und verarbeitet sie. Die einmaligen Anschaffungskosten für den [Gateway](https://shop.thethingsnetwork.com/index.php/product/the-things-gateway/) betragen derzeit rund 350 Franken. Zur Abdeckung der gesamten Region inklusive der näheren Teile des Skigebiets sind vermutlich zwei Gateways nötig. Der Gateway wird via Ethernet ans Internet angeschlossen. Benötigt wird zudem Strom (konventionell oder auch übers Ethernet-Kabel).  
 
@@ -52,13 +62,13 @@ Die Gemeinde installiert einen Gateway für ["The Things Network"](http://thethi
 
 Wo die Gateways installiert werden können, müsste im Detail abgeklärt werden. Ideal sind Standorte, zu denen von möglichst vielen Punkten eine Sichtverbindung besteht. Diskutiert werden könnte etwa über die auf [dieser Karte markierten Standorte](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638).
 
-[![](http://wortaholic.ch/div/hackarosa/lorawanstandorte.png "Bitte klicken für interaktive Karte")](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638)
+[![](https://github.com/loleg/pushthebutton-server/raw/master/http://wortaholic.ch/div/hackarosa/lorawanstandorte.png "Bitte klicken für interaktive Karte")](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638)
 
 <small>([Vergrössern](http://umap.osm.ch/de/map/lorawan-vorschlage-arosa_909#15/46.7844/9.6638))</small>
 
 ### Nodes
 
-![](_preso/2017-10-27 15.40.27_preview.jpeg "Einen von unseren kleinen Nodes bei der Entwicklung")
+![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/node1.jpg)
 
 Die Sendegeräte bestehen aus einer Mikro-Platine sowie einem Sendemodul und einer Antenne. Gespiesen werden die Geräte durch einen kleinen Akku. An diese können je nach Bedarf Sensoren angeschlossen werden. Je nach Konfiguration und angeschlossenen Sensoren können die Geräte mehrere Monate bis zu wenigen Jahren mit einer Akkuladung betrieben werden. Wobei auch eine verkürzte Akkuladung kein Problem darstellt, da die Standorte der Sensoren ohnehin regelmässig von Mitarbeiter der Destination kontrolliert wird.
 
@@ -73,11 +83,11 @@ Je nach Einsatzsznario kommen unterschiedliche Sensoren zum Einsatz.
 - ...[und vieles mehr](https://en.wikipedia.org/wiki/List_of_sensors)
 
 <a name="webapp"></a>
-## Web Application
+# Web Application
 
 This project contains a basic, but fully functional Web dashboard for managing and monitoring nodes connected through The Things Network API. It was developed in [Python](http://python.org) using the [Flask](http://flask.pocoo.org/) microframework and various modules, [Bootstrap](https://getbootstrap.com/) frontend, and [cookiecutter](https://github.com/sloria/cookiecutter-flask/) by sloria.
 
-![](_preso/dashboard.jpg)
+![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/dashboard.jpg)
 
 After registering and logging in, you can add devices using a simple form. They will appear on a map as pins with a status color that changes (green-yellow-red) based on the alert. The Refresh button obtains the latest status from each node in sequence.
 
@@ -85,15 +95,16 @@ See [DEPLOY.rst](DEPLOY.rst) for more technical details and deployment instructi
 
 You can find the corresponding code for the Micropython node at [morgulbrut/opendata_lora_circuitpython](https://github.com/morgulbrut/opendata_lora_circuitpython).
 
-![](_preso/slackbot.png)
+![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/slackbot.png)
 
 A chatbot script we quickly wrote in [Coffeescript](http://coffeescript.org/) to test notifications through Slack is at [loleg/sodabot](https://github.com/loleg/sodabot/blob/opentourism/scripts/onia.coffee).
 
 Here is our sketch for the dashboard, showing additional features (time series display, navigation, etc.) that we envision:
 
-![](_preso/sketch.jpg)
+![](https://github.com/loleg/pushthebutton-server/raw/master/_preso/sketch.jpg)
 
-## Inspirationsquellen
+<a name="thanks"></a>
+# Inspirationsquellen
 
 Ein besonderen Dank an Rochus A. Caluori von der Sport- und Kongresszentrum Arosa für seine kritische Unterstützung während den Hackdays. Vielen Dank an [Gonzalo Casas](http://twitter.com/gnz) und [Open Networking Infrastructure Association](https://opennetworkinfrastructure.org) für die Materialausleihe und support.
 
