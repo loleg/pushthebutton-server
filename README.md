@@ -1,6 +1,8 @@
 # pushthebutton-server
 An #opentourism 2017 project
 
+Please see [here for the node hardware and sofware part](https://github.com/morgulbrut/opendata_lora_circuitpython)
+
 # Push the Button to Get Started
 **Der einfachste Zufriedenheitstracker für Tourismusregionen -- mit grossem Potenzial**
 
