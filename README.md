@@ -68,7 +68,7 @@ Wo die Gateways installiert werden können, müsste im Detail abgeklärt werden.
 
 ### Nodes
 
-![](_preso/node1.jpg)
+![](_preso/node2.jpg)
 
 Die Sendegeräte bestehen aus einer Mikro-Platine sowie einem Sendemodul und einer Antenne. Gespiesen werden die Geräte durch einen kleinen Akku. An diese können je nach Bedarf Sensoren angeschlossen werden. Je nach Konfiguration und angeschlossenen Sensoren können die Geräte mehrere Monate bis zu wenigen Jahren mit einer Akkuladung betrieben werden. Wobei auch eine verkürzte Akkuladung kein Problem darstellt, da die Standorte der Sensoren ohnehin regelmässig von Mitarbeiter der Destination kontrolliert wird.
 
@@ -81,6 +81,8 @@ Je nach Einsatzsznario kommen unterschiedliche Sensoren zum Einsatz.
 - Temperatur- und Feuchtigkeitssensor
 - Mikrofon
 - ...[und vieles mehr](https://en.wikipedia.org/wiki/List_of_sensors)
+
+![](_preso/node1.jpg)
 
 <a name="webapp"></a>
 # Web Application
