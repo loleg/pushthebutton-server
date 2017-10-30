@@ -1,13 +1,13 @@
-## Push the Button for happy tracking
+## Der einfachste offene Zufriedenheitstracker für Tourismusregionen
 
-**Der einfachste Zufriedenheitstracker für Tourismusregionen**
+[ **[Read this document in English](README.md)** ]
 
-This document describes the overall vision and implementation of our project for the [Open Tourism Data](http://tourism.opendata.ch) Hackdays 2017 in Arosa. The code is in two parts: the client [Node hardware and software](https://github.com/morgulbrut/opendata_lora_circuitpython) in one, and a [server repository](https://github.com/loleg/pushthebutton-server) which holds the Web application and monitoring components as detailed below.
+Dieses Dokument beschreibt die allgemeine Vision und Umsetzung unseres Projekts für die [Open Tourism Data Hackdays](http://tourism.opendata.ch) 2017 in Arosa. Der Code besteht aus zwei Teilen: dem Client [Node hardware und -software](https://github.com/morgulbrut/opendata_lora_circuitpython) in einem und einem [Server-Repository](https://github.com/loleg/pushthebutton-server), der die Webanwendungskomponenten wie unten beschrieben enthält.
 
 - [Zusammenfassung](#summary)
 - [Feldtest](#field)
 - [Technische Umsetzung](#tech)
-- [Web application](#webapp)
+- [Webanwendung](#webapp)
 - [Inspirationsquellen](#thanks)
 
 ![](assets/img/home_splash_2.jpg)
@@ -27,7 +27,7 @@ Die Anforderungen an die Tourismusdestinationen sind gestiegen. Grossen Wert leg
 - **Push the Button.** Bislang werden Umfragen zur Kundenzufriedenheit stets nachträglich gemacht. Weshalb befragt man die Gäste nicht dann, wenn sie etwas erleben -- auf dem Berggipfel, bei der Brätlistelle, beim Besuch des Bärenparks. Die Fragen können beliebig angepasst werden.
 - **Data over the air.** Wie warm ist der Badeweiher? Wie stark weht der Wind auf dem Gipfel? Die Gäste können die aktuellen Messdaten der im gesamten Tourismusgebiet installierten Sensoren jederzeit im Web abrufen.  
 - **Book it to my Room.** Die Gäste können an beliebigen Orten Dienstleistungen in Anspruch nehmen oder Produkte kaufen -- und die Kosten direkt auf die Hotelrechnung buchen lassen. Dazu halten sie lediglich ihre RFID-Karte aufs entsprechende Bezahlterminal.
-- **Surprise, Surprise!** Sie möchten die Liebste ganz besonders verwöhnen? Dann bestellen Sie eine Flasche Sekt auf den Berggipfel. Nichts ist einfacher als das: Der Batch wird an die Bestellsäule gehalten -- wenig später bringt eine Drohne die Überraschung.
+- **Surprise, Surprise!** Sie möchten die Liebste ganz besonders verwöhnen? Dann bestellen Sie eine Flasche Sekt auf den Berggipfel. Nichts ist einfacher als das: Der Badge wird an die Bestellsäule gehalten -- wenig später bringt eine Drohne die Überraschung.
 
 <a name="field"></a>
 # Feldtest
@@ -48,9 +48,11 @@ Angebote wie diese bieten diverse Vorteile:
 <a name="tech"></a>
 # Technische Umsetzung
 
-Die Datenübertragung erfolgt über die Funktechnik [LoRaWAN](https://de.wikipedia.org/wiki/Long_Range_Wide_Area_Network). Damit können Daten bei sehr geringem Energieverbrauch über grosse Distanzen übermittelt werden. Damit können Zufriedensheitstracker an beliebigen Stellen platziert werden -- unabhängig von Infrasturktur wie konventioneller Mobilnetzabdeckung und Stomverfügbarkeit. Der Empfang und die Verarbeitung der Daten erfolgt durch das nicht kommerzielle [The Things Network](https://www.thethingsnetwork.org). Damit fallen für die unmittelbare Übertragung keine Extrakosten an.
+Die Datenübertragung erfolgt über die Funktechnik [Long Range Wide Area Network](https://de.wikipedia.org/wiki/Long_Range_Wide_Area_Network) (LoRaWAN). Damit können Daten bei sehr geringem Energieverbrauch über grosse Distanzen übermittelt werden. Damit können Zufriedensheitstracker an beliebigen Stellen platziert werden -- unabhängig von Infrasturktur wie konventioneller Mobilnetzabdeckung und Stomverfügbarkeit. Der Empfang und die Verarbeitung der Daten erfolgt durch das nicht kommerzielle [The Things Network](https://www.thethingsnetwork.org). Damit fallen für die unmittelbare Übertragung keine Extrakosten an.
 
-Bei technischen Fragen kann in der "The Things Network"-Gemeinschaft nachgefragt oder bei der [Open Network Infrastructure Association](https://opennetworkinfrastructure.org/) nachgefragt werden. Ist kommerzieller Support nötig oder soll der Gateway nicht selber betrieben werden, können die Übertragungsleistungen bei der [Swisscom](http://lpn.swisscom.ch/d/) eingekauft werden. Nachfolgend wird eine Installation mit dem "The Things Network" beschrieben.
+Bei technischen Fragen kann in der "The Things Network"-Gemeinschaft nachgefragt oder bei der [Open Network Infrastructure Association](https://opennetworkinfrastructure.org/) nachgefragt werden. Ist kommerzieller Support nötig oder soll der Gateway nicht selber betrieben werden, können die Übertragungsleistungen bei der [Swisscom](http://lpn.swisscom.ch/d/) eingekauft werden.
+
+Nachfolgend wird eine Installation mit dem "The Things Network" beschrieben.
 
 ### Gateway
 
@@ -85,30 +87,30 @@ Je nach Einsatzsznario kommen unterschiedliche Sensoren zum Einsatz.
 ![](_preso/node1.jpg)
 
 <a name="webapp"></a>
-# Web Application
+# Webanwendung
 
-This project contains a basic, but fully functional Web dashboard for managing and monitoring nodes connected through The Things Network API. It was developed in [Python](http://python.org) using the [Flask](http://flask.pocoo.org/) microframework and various modules, [Bootstrap](https://getbootstrap.com/) frontend, and [cookiecutter](https://github.com/sloria/cookiecutter-flask/) by sloria.
+Dieses Projekt enthält ein simples, aber funktionsfähiges Web-Dashboard zum Verwalten und Überwachen von Nodes, die über die Things Network API verbunden sind. Es wurde in [Python](http://python.org) mit Verwendung des [Flask](http://flask.pocoo.org/) Mikroframeworks und verschiedener Modulen so wie [Bootstrap](https://getbootstrap.com/) und [cookiecutter](https://github.com/sloria/cookiecutter-flask/) entwickelt.
 
 ![](_preso/dashboard.jpg)
 
-After registering and logging in, you can add devices using a simple form. They will appear on a map as pins with a status color that changes (green-yellow-red) based on the alert. The Refresh button obtains the latest status from each node in sequence.
+Nach der Registrierung und Anmeldung können Geräte über ein einfaches Formular hinzugefügt werden. Diese werden auf der Karte als Pins mit einer Statusfarbe angezeigt, die sich mit der Warnungsniveau ändert (grün-gelb-rot). Die Aktualisierungsschaltfläche erhält den neuesten Status von jedem Knoten der Reihe nach.
 
-See [DEPLOY.rst](DEPLOY.rst) for more technical details and deployment instructions of the Web application.
+Weitere Informationen zu technischen Details und Deployment-Anweisungen der Webanwendung sind zu sehen unter [DEPLOY.rst](DEPLOY.rst).
 
-You can find the corresponding code for the Micropython node at [morgulbrut/opendata_lora_circuitpython](https://github.com/morgulbrut/opendata_lora_circuitpython).
+Eine Skizze für das Dashboard mit zusätzlichen Funktionen (Zeitreihenanzeige, Navigation usw.), wie wir uns das vorstellen:
+
+![](_preso/sketch.jpg)
+
+Sie finden den entsprechenden Code für den Micropython-Knoten unter [morgulbrut/opendata_lora_circuitpython](https://github.com/morgulbrut/opendata_lora_circuitpython).
 
 ![](_preso/slackbot.png)
 
-A chatbot script we quickly wrote in [Coffeescript](http://coffeescript.org/) to test notifications through Slack is at [loleg/sodabot](https://github.com/loleg/sodabot/blob/opentourism/scripts/onia.coffee).
-
-Here is our sketch for the dashboard, showing additional features (time series display, navigation, etc.) that we envision:
-
-![](_preso/sketch.jpg)
+Ein kleines Chatbot-Skript, das wir schnell in [Coffeescript](http://coffeescript.org/) geschrieben haben, um Benachrichtigungen von TTN Nodes über Slack zu testen, ist im [loleg/sodabot](https://github.com/loleg/sodabot/blob/opentourism/scripts/onia.kaffee)
 
 <a name="thanks"></a>
 # Inspirationsquellen
 
-Ein besonderen Dank an Rochus A. Caluori von der Sport- und Kongresszentrum Arosa für seine kritische Unterstützung während den Hackdays. Vielen Dank an [Gonzalo Casas](http://twitter.com/gnz) und [Open Networking Infrastructure Association](https://opennetworkinfrastructure.org) für die Materialausleihe und support.
+Ein besonderen Dank an Rochus A. Caluori von der Sport- und Kongresszentrum Arosa für seine kritische Unterstützung während den Hackdays. Auch vielen Dank an [Gonzalo Casas](http://twitter.com/gnz) und [Open Networking Infrastructure Association](https://opennetworkinfrastructure.org) für die Materialausleihe.
 
 Wir sind dank diesen und vielen anderen Projekten sehr motiviert und instruiert geworden:
 
