@@ -114,6 +114,7 @@ Ein besonderen Dank an Rochus A. Caluori von der Sport- und Kongresszentrum Aros
 
 Wir sind dank diesen und vielen anderen Projekten sehr motiviert und instruiert geworden:
 
+- [MakeZurich 2017](http://now.makezurich.ch/event/1) (für alle Things!)
 - [The Hiveeyes Project](https://hiveeyes.org/) (für die Offenheit)
 - [Züri wie neu](https://www.zueriwieneu.ch/) (Melden von Schäden an der Zürcher Infrastruktur, basiert auf [FixMyStreet](http://fixmystreet.org/))
 - [Feedback-Button von Lobaro](http://feedback-button.de/) (ein Zufriedenheitstracker aus Deutschland)

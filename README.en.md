@@ -111,6 +111,7 @@ Special thanks to Rochus A. Caluori from the Sports and Congress Center in Arosa
 
 We were highly motivated and instructed thanks to these and many other prior projects:
 
+- [MakeZurich 2017](http://now.makezurich.ch/event/1) (for all the Things!)
 - [The Hiveeyes Project](https://hiveeyes.org/) (for openness)
 - [Züri wie neu](https://www.zueriwieneu.ch/) (Report damage to the Zurich Infrastructure, based on [FixMyStreet](http://fixmystreet.org/))
 - [Feedback button of Lobaro](http://feedback-button.de/) (a satisfaction tracker from Germany)
