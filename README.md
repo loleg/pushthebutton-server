@@ -1,6 +1,6 @@
 ## Der einfachste offene Zufriedenheitstracker für Tourismusregionen
 
-[ **[Read this document in English](README.md)** ]
+[ **[Read this document in English](README.en.md)** ]
 
 Dieses Dokument beschreibt die allgemeine Vision und Umsetzung unseres Projekts für die [Open Tourism Data Hackdays](http://tourism.opendata.ch) 2017 in Arosa. Der Code besteht aus zwei Teilen: dem Client [Node hardware und -software](https://github.com/morgulbrut/opendata_lora_circuitpython) in einem und einem [Server-Repository](https://github.com/loleg/pushthebutton-server), der die Webanwendungskomponenten wie unten beschrieben enthält.
 
